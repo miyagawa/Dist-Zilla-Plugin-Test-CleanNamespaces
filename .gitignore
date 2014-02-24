@@ -1,0 +1,4 @@
+/.build/
+!.gitignore
+/Dist-Zilla-Plugin-Test-CleanNamespaces-*/
+/Dist-Zilla-Plugin-Test-CleanNamespaces-*.tar.gz
