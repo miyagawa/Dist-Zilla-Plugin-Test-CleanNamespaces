@@ -132,6 +132,17 @@ The name of the generated test. Defaults to F<xt/release/clean-namespaces.t>.
 A regular expression describing a module name that should not be checked. Can
 be repeated more than once.
 
+=head1 TO DO (or: POSSIBLE FEATURES COMING IN FUTURE RELEASES)
+
+=for stopwords FileFinder
+
+=begin :list
+
+* use of a configurable L<FileFinder|Dist::Zilla::Role::FileFinder> for finding
+source files to check (depends on changes planned in L<Test::CleanNamespaces>)
+
+=end :list
+
 =head1 SUPPORT
 
 =for stopwords irc
