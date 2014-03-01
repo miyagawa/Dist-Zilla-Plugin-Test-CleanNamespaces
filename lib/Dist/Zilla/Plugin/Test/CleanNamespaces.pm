@@ -15,6 +15,17 @@ use MooseX::Types::Stringlike 'Stringlike';
 use Path::Tiny;
 use namespace::autoclean;
 
+sub mvp_multivalue_args { qw(skips) }
+sub mvp_aliases { return { skip => 'skips' } }
+
+has skips => (
+    isa => 'ArrayRef[Str]',
+    traits => ['Array'],
+    handles => { skips => 'elements' },
+    lazy => 1,
+    default => sub { [] },
+);
+
 has filename => (
     is => 'ro', isa => Stringlike,
     coerce => 1,
@@ -51,7 +62,12 @@ use warnings;
 use Test::More 0.94;
 use Test::CleanNamespaces;
 
-subtest all_namespaces_clean => sub { all_namespaces_clean() };
+subtest all_namespaces_clean => sub { {{
+    $skips
+    ? "namespaces_clean(\n    "
+        . 'grep { my $mod = $_; grep { $mod !~ $_ } ' . $skips . " } Test::CleanNamespaces->find_modules);\n"
+    : 'all_namespaces_clean() '
+}}};
 
 done_testing;
 TEST
@@ -70,6 +86,7 @@ sub munge_file
             {
                 dist => \($self->zilla),
                 plugin => \$self,
+                skips => \( join(', ', map { 'qr/' . $_ . '/' } $self->skips) ),
             }
         )
     );
@@ -87,6 +104,7 @@ __END__
 In your F<dist.ini>:
 
     [Test::CleanNamespaces]
+    skip = ::Dirty$
 
 =head1 DESCRIPTION
 
@@ -106,6 +124,11 @@ L<namespace::autoclean>.
 =head2 filename
 
 The name of the generated test. Defaults to F<xt/release/clean-namespaces.t>.
+
+=head2 skip
+
+A regular expression describing a module name that should not be checked. Can
+be repeated more than once.
 
 =head1 SUPPORT
 
