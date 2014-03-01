@@ -42,7 +42,7 @@ sub register_prereqs
             type  => 'requires',
             phase => 'develop',
         },
-        'Test::CleanNamespaces' => '0',
+        'Test::CleanNamespaces' => '0.04',
     );
 }
 
@@ -60,7 +60,7 @@ use warnings;
 # this test was generated with {{ ref($plugin) . ' ' . ($plugin->VERSION || '<self>') }}
 
 use Test::More 0.94;
-use Test::CleanNamespaces;
+use Test::CleanNamespaces 0.04;
 
 subtest all_namespaces_clean => sub { {{
     $skips
