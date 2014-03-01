@@ -119,6 +119,8 @@ subroutines from other modules that are now callable as methods at runtime.
 You can fix this in your code with L<namespace::clean> or
 L<namespace::autoclean>.
 
+=for Pod::Coverage mvp_multivalue_args mvp_aliases register_prereqs gather_files munge_file
+
 =head1 CONFIGURATION OPTIONS
 
 =head2 filename
