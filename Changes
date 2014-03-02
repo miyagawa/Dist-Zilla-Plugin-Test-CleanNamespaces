@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.002     2014-03-02 07:06:52Z
           - ensure we depend on a fixed version of Test::CleanNamespaces
           - fix missing prereq caused by us running our generated test in
             tests, where [AutoPrereqs] did not know about it
