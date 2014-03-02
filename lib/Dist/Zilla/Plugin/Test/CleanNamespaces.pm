@@ -40,7 +40,7 @@ sub register_prereqs
     $self->zilla->register_prereqs(
         {
             type  => 'requires',
-            phase => 'develop',
+            phase => $self->filename =~ /^t/ ? 'test' : 'develop',
         },
         'Test::CleanNamespaces' => '>= 0.04, != 0.06',
     );
