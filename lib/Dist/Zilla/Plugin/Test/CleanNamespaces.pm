@@ -42,7 +42,7 @@ sub register_prereqs
             type  => 'requires',
             phase => 'develop',
         },
-        'Test::CleanNamespaces' => '0.04',
+        'Test::CleanNamespaces' => '>= 0.04, != 0.06',
     );
 }
 

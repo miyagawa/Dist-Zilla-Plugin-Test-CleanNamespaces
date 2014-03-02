@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          - ensure we depend on a fixed version of Test::CleanNamespaces
 
 0.001     2014-03-01 19:12:51Z
           - Initial release.
