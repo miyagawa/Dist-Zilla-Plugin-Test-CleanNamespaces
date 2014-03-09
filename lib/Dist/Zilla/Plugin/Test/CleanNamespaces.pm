@@ -62,12 +62,13 @@ use warnings;
 use Test::More 0.94;
 use Test::CleanNamespaces 0.04;
 
-subtest all_namespaces_clean => sub { {{
+subtest all_namespaces_clean => sub {{
     $skips
-    ? "namespaces_clean(\n    "
-        . 'grep { my $mod = $_; grep { $mod !~ $_ } ' . $skips . " } Test::CleanNamespaces->find_modules);\n"
-    : 'all_namespaces_clean() '
-}}};
+    ? "{\n    namespaces_clean(
+        " . 'grep { my $mod = $_; grep { $mod !~ $_ } ' . $skips . " }
+            Test::CleanNamespaces->find_modules\n    );\n};"
+    : '{ all_namespaces_clean() };'
+}}
 
 done_testing;
 TEST
