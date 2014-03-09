@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          - fix 'skip' option, when used twice or more
 
 0.002     2014-03-02 07:06:52Z
           - ensure we depend on a fixed version of Test::CleanNamespaces

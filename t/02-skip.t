@@ -13,10 +13,11 @@ my $tzil = Builder->from_config(
         add_files => {
             path(qw(source dist.ini)) => simple_ini(
                 [ GatherDir => ],
-                [ 'Test::CleanNamespaces' => { skip => '::Dirty$' } ],
+                [ 'Test::CleanNamespaces' => { skip => [ '::Dirty$', '::Unclean$' ] } ],
             ),
             path(qw(source lib Foo.pm)) => "package Foo;\n1;\n",
             path(qw(source lib Foo Dirty.pm)) => "package Foo::Dirty;\nuse Scalar::Util 'refaddr';\n1;\n",
+            path(qw(source lib Foo Unclean.pm)) => "package Foo::Unclean;\nuse Scalar::Util 'weaken';\n1;\n",
         },
     },
 );

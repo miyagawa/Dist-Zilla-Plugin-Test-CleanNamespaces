@@ -65,7 +65,7 @@ use Test::CleanNamespaces 0.04;
 subtest all_namespaces_clean => sub {{
     $skips
     ? "{\n    namespaces_clean(
-        " . 'grep { my $mod = $_; grep { $mod !~ $_ } ' . $skips . " }
+        " . 'grep { my $mod = $_; not grep { $mod =~ $_ } ' . $skips . " }
             Test::CleanNamespaces->find_modules\n    );\n};"
     : '{ all_namespaces_clean() };'
 }}
