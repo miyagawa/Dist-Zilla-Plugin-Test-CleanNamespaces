@@ -42,7 +42,7 @@ sub register_prereqs
             type  => 'requires',
             phase => $self->filename =~ /^t/ ? 'test' : 'develop',
         },
-        'Test::CleanNamespaces' => '>= 0.04, != 0.06',
+        'Test::CleanNamespaces' => '0.08',
     );
 }
 
