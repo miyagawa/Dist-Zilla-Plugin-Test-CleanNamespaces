@@ -4,7 +4,7 @@ Dist::Zilla::Plugin::Test::CleanNamespaces - Generate a test to check that all n
 
 # VERSION
 
-version 0.002
+version 0.003
 
 # SYNOPSIS
 

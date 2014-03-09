@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.003     2014-03-09 04:09:33Z
           - fix 'skip' option, when used twice or more
 
 0.002     2014-03-02 07:06:52Z
