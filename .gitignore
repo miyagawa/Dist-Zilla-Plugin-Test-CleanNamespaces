@@ -1,4 +1,6 @@
+/.ackrc
 /.build/
-!.gitignore
+!/.gitignore
+/.latest
 /Dist-Zilla-Plugin-Test-CleanNamespaces-*/
 /Dist-Zilla-Plugin-Test-CleanNamespaces-*.tar.gz
