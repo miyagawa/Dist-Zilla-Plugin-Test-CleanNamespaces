@@ -161,6 +161,8 @@ I am also usually active on irc, as 'ether' at C<irc.perl.org>.
 * L<namespace::autoclean>
 * L<namespace::sweep>
 * L<Sub::Exporter::ForMethods>
+* L<Sub::Install>
+* L<MooseX::MarkAsMethods>
 
 =end :list
 
