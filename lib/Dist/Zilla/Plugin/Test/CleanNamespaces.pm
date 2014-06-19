@@ -131,7 +131,7 @@ The name of the generated test. Defaults to F<xt/release/clean-namespaces.t>.
 =head2 skip
 
 A regular expression describing a module name that should not be checked. Can
-be repeated more than once.
+be used more than once.
 
 =head1 TO DO (or: POSSIBLE FEATURES COMING IN FUTURE RELEASES)
 
