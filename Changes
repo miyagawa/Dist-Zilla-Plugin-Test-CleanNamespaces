@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          - bump required version of Test::CleanNamespaces, to get fixes for
+            Mouse, overloads, constants
 
 0.003     2014-03-09 04:09:33Z
           - fix 'skip' option, when used twice or more
