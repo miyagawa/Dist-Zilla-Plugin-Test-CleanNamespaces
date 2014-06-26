@@ -4,7 +4,7 @@ Dist::Zilla::Plugin::Test::CleanNamespaces - Generate a test to check that all n
 
 # VERSION
 
-version 0.003
+version 0.004
 
 # SYNOPSIS
 
@@ -35,7 +35,7 @@ The name of the generated test. Defaults to `xt/release/clean-namespaces.t`.
 ## skip
 
 A regular expression describing a module name that should not be checked. Can
-be repeated more than once.
+be used more than once.
 
 # TO DO (or: POSSIBLE FEATURES COMING IN FUTURE RELEASES)
 
@@ -56,6 +56,8 @@ I am also usually active on irc, as 'ether' at `irc.perl.org`.
 - [namespace::autoclean](https://metacpan.org/pod/namespace::autoclean)
 - [namespace::sweep](https://metacpan.org/pod/namespace::sweep)
 - [Sub::Exporter::ForMethods](https://metacpan.org/pod/Sub::Exporter::ForMethods)
+- [Sub::Install](https://metacpan.org/pod/Sub::Install)
+- [MooseX::MarkAsMethods](https://metacpan.org/pod/MooseX::MarkAsMethods)
 
 # AUTHOR
 
