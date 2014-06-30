@@ -34,6 +34,8 @@ has filename => (
     default => sub { path('xt', 'release', 'clean-namespaces.t') },
 );
 
+sub _tcn_prereq { '0.13' }
+
 sub register_prereqs
 {
     my $self = shift;
@@ -43,7 +45,7 @@ sub register_prereqs
             type  => 'requires',
             phase => $self->filename =~ /^t/ ? 'test' : 'develop',
         },
-        'Test::CleanNamespaces' => '0.13',
+        'Test::CleanNamespaces' => $self->_tcn_prereq,
     );
 }
 
@@ -61,7 +63,7 @@ use warnings;
 # this test was generated with {{ ref($plugin) . ' ' . ($plugin->VERSION || '<self>') }}
 
 use Test::More 0.94;
-use Test::CleanNamespaces 0.04;
+use Test::CleanNamespaces {{ $tcn_prereq }};
 
 subtest all_namespaces_clean => sub {{
     $skips
@@ -89,6 +91,7 @@ sub munge_file
                 dist => \($self->zilla),
                 plugin => \$self,
                 skips => \( join(', ', map { 'qr/' . $_ . '/' } $self->skips) ),
+                tcn_prereq => \($self->_tcn_prereq),
             }
         )
     );

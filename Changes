@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          - fix minimum version of Test::CleanNamespaces used by generated
+            test
 
 0.004     2014-06-26 23:34:32Z
           - bump required version of Test::CleanNamespaces, to get fixes for
