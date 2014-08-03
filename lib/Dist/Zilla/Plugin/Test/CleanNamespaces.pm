@@ -13,6 +13,7 @@ with (
     'Dist::Zilla::Role::PrereqSource',
 );
 use MooseX::Types::Stringlike 'Stringlike';
+use Moose::Util::TypeConstraints 'role_type';
 use Path::Tiny;
 use namespace::autoclean;
 
@@ -49,14 +50,19 @@ sub register_prereqs
     );
 }
 
+has _file => (
+    is => 'rw', isa => role_type('Dist::Zilla::Role::File'),
+);
+
 sub gather_files
 {
     my $self = shift;
 
     require Dist::Zilla::File::InMemory;
-    $self->add_file( Dist::Zilla::File::InMemory->new(
-        name => $self->filename,
-        content => <<'TEST',
+    $self->add_file( $self->_file(
+        Dist::Zilla::File::InMemory->new(
+            name => $self->filename,
+            content => <<'TEST',
 use strict;
 use warnings;
 
@@ -75,14 +81,15 @@ subtest all_namespaces_clean => sub {{
 
 done_testing;
 TEST
-    ));
+        ))
+    );
 }
 
 sub munge_file
 {
     my ($self, $file) = @_;
 
-    return unless $file->name eq $self->filename;
+    return unless $file == $self->_file;
 
     $file->content(
         $self->fill_in_string(
