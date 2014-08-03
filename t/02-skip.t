@@ -35,7 +35,8 @@ subtest 'run the generated test: filters out the "skip" regexp from the modules 
     my $wd = pushd $build_dir;
 
     do $file;
-    warn $@ if $@;
+    note 'ran tests successfully' if not $@;
+    fail($@) if $@;
 };
 
 done_testing;
