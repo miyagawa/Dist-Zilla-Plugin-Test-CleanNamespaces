@@ -14,6 +14,7 @@ my $tzil = Builder->from_config(
         add_files => {
             path(qw(source dist.ini)) => simple_ini(
                 [ GatherDir => ],
+                [ MetaConfig => ],
                 [ 'Test::CleanNamespaces' ],
             ),
             path(qw(source lib Foo.pm)) => "package Foo;\n1;\n",
@@ -39,6 +40,21 @@ cmp_deeply(
                 },
             },
         },
+        x_Dist_Zilla => superhashof({
+            plugins => supersetof(
+                {
+                    class => 'Dist::Zilla::Plugin::Test::CleanNamespaces',
+                    config => {
+                        'Dist::Zilla::Plugin::Test::CleanNamespaces' => {
+                            filename => 'xt/release/clean-namespaces.t',
+                            skips => [],
+                        },
+                    },
+                    name => 'Test::CleanNamespaces',
+                    version => ignore,
+                },
+            ),
+        }),
     }),
     'prerequisites are properly injected',
 );

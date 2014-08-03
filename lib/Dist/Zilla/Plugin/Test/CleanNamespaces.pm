@@ -37,6 +37,19 @@ has filename => (
 
 sub _tcn_prereq { '0.13' }
 
+around dump_config => sub
+{
+    my ($orig, $self) = @_;
+    my $config = $self->$orig;
+
+    $config->{+__PACKAGE__} = {
+        skips => [ $self->skips ],
+        filename => $self->filename,
+    };
+
+    return $config;
+};
+
 sub register_prereqs
 {
     my $self = shift;
