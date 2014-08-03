@@ -6,6 +6,7 @@ use if $ENV{AUTHOR_TESTING}, 'Test::Warnings';
 use Test::DZil;
 use Path::Tiny;
 use File::pushd 'pushd';
+use Test::Deep;
 
 my $tzil = Builder->from_config(
     { dist_root => 't/does-not-exist' },
@@ -27,6 +28,20 @@ ok(-e $file, 'test created');
 
 my $content = $file->slurp_utf8;
 unlike($content, qr/[^\S\n]\n/m, 'no trailing whitespace in generated test');
+
+cmp_deeply(
+    $tzil->distmeta,
+    superhashof({
+        prereqs => {
+            develop => {
+                requires => {
+                    'Test::CleanNamespaces' => Dist::Zilla::Plugin::Test::CleanNamespaces->_tcn_prereq,
+                },
+            },
+        },
+    }),
+    'prerequisites are properly injected',
+);
 
 subtest 'run the generated test' => sub
 {
