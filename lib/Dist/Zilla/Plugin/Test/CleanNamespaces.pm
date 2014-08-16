@@ -35,7 +35,7 @@ has filename => (
     default => sub { path('xt', 'release', 'clean-namespaces.t') },
 );
 
-sub _tcn_prereq { '0.13' }
+sub _tcn_prereq { '0.15' }
 
 around dump_config => sub
 {
