@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.005     2014-08-16 00:24:16Z
           - fix minimum version of Test::CleanNamespaces used by generated
             test
           -  munge the file properly even if [ExtraTests] has already moved it

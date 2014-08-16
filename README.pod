@@ -1,0 +1,117 @@
+=pod
+
+=encoding UTF-8
+
+=head1 NAME
+
+Dist::Zilla::Plugin::Test::CleanNamespaces - Generate a test to check that all namespaces are clean
+
+=head1 VERSION
+
+version 0.005
+
+=head1 SYNOPSIS
+
+In your F<dist.ini>:
+
+    [Test::CleanNamespaces]
+    skip = ::Dirty$
+
+=head1 DESCRIPTION
+
+This is a L<Dist::Zilla> plugin that runs at the
+L<gather files|Dist::Zilla::Role::FileGatherer> stage, providing a test file
+(configurable, defaulting to F<xt/release/clean-namespaces.t>).
+
+This test will scan all modules in your distribution and check that their
+namespaces are "clean" -- that is, that there are no remaining imported
+subroutines from other modules that are now callable as methods at runtime.
+
+You can fix this in your code with L<namespace::clean> or
+L<namespace::autoclean>.
+
+=for Pod::Coverage mvp_multivalue_args mvp_aliases register_prereqs gather_files munge_file
+
+=head1 CONFIGURATION OPTIONS
+
+=head2 filename
+
+The name of the generated test. Defaults to F<xt/release/clean-namespaces.t>.
+
+=head2 skip
+
+A regular expression describing a module name that should not be checked. Can
+be used more than once.
+
+=head1 TO DO (or: POSSIBLE FEATURES COMING IN FUTURE RELEASES)
+
+=for stopwords FileFinder
+
+=over 4
+
+=item *
+
+use of a configurable L<FileFinder|Dist::Zilla::Role::FileFinder> for finding
+
+source files to check (depends on changes planned in L<Test::CleanNamespaces>)
+
+=back
+
+=head1 SUPPORT
+
+=for stopwords irc
+
+Bugs may be submitted through L<the RT bug tracker|https://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-Plugin-Test-CleanNamespaces>
+(or L<bug-Dist-Zilla-Plugin-Test-CleanNamespaces@rt.cpan.org|mailto:bug-Dist-Zilla-Plugin-Test-CleanNamespaces@rt.cpan.org>).
+I am also usually active on irc, as 'ether' at C<irc.perl.org>.
+
+=head1 SEE ALSO
+
+=over 4
+
+=item *
+
+L<Test::CleanNamespaces>
+
+=item *
+
+L<namespace::clean>
+
+=item *
+
+L<namespace::autoclean>
+
+=item *
+
+L<namespace::sweep>
+
+=item *
+
+L<Sub::Exporter::ForMethods>
+
+=item *
+
+L<Sub::Name>
+
+=item *
+
+L<Sub::Install>
+
+=item *
+
+L<MooseX::MarkAsMethods>
+
+=back
+
+=head1 AUTHOR
+
+Karen Etheridge <ether@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2014 by Karen Etheridge.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut
