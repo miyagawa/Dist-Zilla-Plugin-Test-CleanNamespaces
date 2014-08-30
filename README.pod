@@ -8,7 +8,7 @@ Dist::Zilla::Plugin::Test::CleanNamespaces - Generate a test to check that all n
 
 =head1 VERSION
 
-version 0.005
+version 0.006
 
 =head1 SYNOPSIS
 
@@ -21,7 +21,7 @@ In your F<dist.ini>:
 
 This is a L<Dist::Zilla> plugin that runs at the
 L<gather files|Dist::Zilla::Role::FileGatherer> stage, providing a test file
-(configurable, defaulting to F<xt/release/clean-namespaces.t>).
+(configurable, defaulting to F<xt/author/clean-namespaces.t>).
 
 This test will scan all modules in your distribution and check that their
 namespaces are "clean" -- that is, that there are no remaining imported
@@ -36,7 +36,7 @@ L<namespace::autoclean>.
 
 =head2 filename
 
-The name of the generated test. Defaults to F<xt/release/clean-namespaces.t>.
+The name of the generated test. Defaults to F<xt/author/clean-namespaces.t>.
 
 =head2 skip
 

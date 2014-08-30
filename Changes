@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.006     2014-08-30 01:33:11Z
           - default filename of generated test is now
             xt/author/clean-namespaces.t, to allow the test to run on travis
             when not doing release testing
