@@ -25,8 +25,8 @@ $tzil->chrome->logger->set_debug(1);
 $tzil->build;
 
 my $build_dir = path($tzil->tempdir)->child('build');
-my $file = $build_dir->child(qw(t release-clean-namespaces.t));
-ok(-e $file, 'test created under xt/ and moved to t/release- by [ExtraTests]');
+my $file = $build_dir->child(qw(t author-clean-namespaces.t));
+ok(-e $file, 'test created under xt/ and moved to t/author- by [ExtraTests]');
 
 my $content = $file->slurp_utf8;
 unlike($content, qr/[^\S\n]\n/m, 'no trailing whitespace in generated test');
@@ -35,7 +35,7 @@ subtest 'run the generated test' => sub
 {
     my $wd = pushd $build_dir;
 
-    local $ENV{RELEASE_TESTING} = 1;
+    local $ENV{AUTHOR_TESTING} = 1;
     do $file;
     note 'ran tests successfully' if not $@;
     fail($@) if $@;

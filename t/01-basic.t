@@ -26,7 +26,7 @@ $tzil->chrome->logger->set_debug(1);
 $tzil->build;
 
 my $build_dir = path($tzil->tempdir)->child('build');
-my $file = $build_dir->child(qw(xt release clean-namespaces.t));
+my $file = $build_dir->child(qw(xt author clean-namespaces.t));
 ok(-e $file, 'test created');
 
 my $content = $file->slurp_utf8;
@@ -48,7 +48,7 @@ cmp_deeply(
                     class => 'Dist::Zilla::Plugin::Test::CleanNamespaces',
                     config => {
                         'Dist::Zilla::Plugin::Test::CleanNamespaces' => {
-                            filename => 'xt/release/clean-namespaces.t',
+                            filename => 'xt/author/clean-namespaces.t',
                             skips => [],
                         },
                     },

@@ -1,6 +1,9 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+          - default filename of generated test is now
+            xt/author/clean-namespaces.t, to allow the test to run on travis
+            when not doing release testing
 
 0.005     2014-08-16 00:24:16Z
           - fix minimum version of Test::CleanNamespaces used by generated

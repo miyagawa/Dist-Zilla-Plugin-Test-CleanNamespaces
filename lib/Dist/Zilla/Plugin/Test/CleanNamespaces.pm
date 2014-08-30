@@ -32,7 +32,7 @@ has filename => (
     is => 'ro', isa => Stringlike,
     coerce => 1,
     lazy => 1,
-    default => sub { path('xt', 'release', 'clean-namespaces.t') },
+    default => sub { path('xt', 'author', 'clean-namespaces.t') },
 );
 
 sub _tcn_prereq { '0.15' }
@@ -135,7 +135,7 @@ In your F<dist.ini>:
 
 This is a L<Dist::Zilla> plugin that runs at the
 L<gather files|Dist::Zilla::Role::FileGatherer> stage, providing a test file
-(configurable, defaulting to F<xt/release/clean-namespaces.t>).
+(configurable, defaulting to F<xt/author/clean-namespaces.t>).
 
 This test will scan all modules in your distribution and check that their
 namespaces are "clean" -- that is, that there are no remaining imported
@@ -150,7 +150,7 @@ L<namespace::autoclean>.
 
 =head2 filename
 
-The name of the generated test. Defaults to F<xt/release/clean-namespaces.t>.
+The name of the generated test. Defaults to F<xt/author/clean-namespaces.t>.
 
 =head2 skip
 
