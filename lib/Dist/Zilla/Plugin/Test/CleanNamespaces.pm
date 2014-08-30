@@ -161,12 +161,9 @@ be used more than once.
 
 =for stopwords FileFinder
 
-=begin :list
-
+=for :list
 * use of a configurable L<FileFinder|Dist::Zilla::Role::FileFinder> for finding
 source files to check (depends on changes planned in L<Test::CleanNamespaces>)
-
-=end :list
 
 =head1 SUPPORT
 
@@ -178,8 +175,7 @@ I am also usually active on irc, as 'ether' at C<irc.perl.org>.
 
 =head1 SEE ALSO
 
-=begin :list
-
+=for :list
 * L<Test::CleanNamespaces>
 * L<namespace::clean>
 * L<namespace::autoclean>
@@ -188,7 +184,5 @@ I am also usually active on irc, as 'ether' at C<irc.perl.org>.
 * L<Sub::Name>
 * L<Sub::Install>
 * L<MooseX::MarkAsMethods>
-
-=end :list
 
 =cut
